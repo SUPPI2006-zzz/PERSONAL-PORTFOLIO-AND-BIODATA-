@@ -1,0 +1,472 @@
+/* ========================================
+   PROFILE EDITING PAGE STYLES
+   Additional CSS for profile.html
+   ======================================== */
+
+/* Subtitle text below main title */
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Save All Section at Top */
+.save-all-section {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.btn-large {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 1.1rem;
+}
+
+/* Edit Section Cards */
+.edit-section {
+    margin-bottom: var(--spacing-xl);
+    border-left: 4px solid var(--primary-color);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.section-header h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.section-header h2 i {
+    color: var(--primary-color);
+}
+
+/* Edit Button */
+.btn-edit {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--radius-sm);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Section Content - Initially collapsed */
+.section-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.section-content.active {
+    max-height: 5000px;
+    transition: max-height 0.6s ease;
+}
+
+.editable-section {
+    padding-top: var(--spacing-md);
+}
+
+/* ========================================
+   PROFILE PICTURE UPLOAD SECTION
+   ======================================== */
+.image-upload-area {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.current-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    color: white;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+}
+
+.current-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.current-image i {
+    position: absolute;
+}
+
+.upload-controls {
+    flex: 1;
+    min-width: 250px;
+}
+
+.upload-controls .btn {
+    margin-right: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.help-text {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: var(--spacing-sm);
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.95rem;
+}
+
+.form-group label i {
+    color: var(--primary-color);
+    width: 20px;
+}
+
+.form-control {
+    padding: var(--spacing-sm);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ========================================
+   SKILLS EDITING
+   ======================================== */
+.skills-edit-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.skill-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.skill-input {
+    flex: 1;
+}
+
+.btn-remove {
+    width: 40px;
+    height: 40px;
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-remove:hover {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-add {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ========================================
+   CERTIFICATION EDITING
+   ======================================== */
+.certification-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.cert-edit-item {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: #f8fafc;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.cert-edit-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.cert-image-preview {
+    width: 150px;
+    height: 150px;
+    background: white;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    color: var(--text-muted);
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.cert-image-preview i {
+    font-size: 2rem;
+}
+
+.cert-image-preview span {
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0 var(--spacing-xs);
+}
+
+.cert-image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cert-image-preview.has-image {
+    border-style: solid;
+    border-color: var(--primary-color);
+}
+
+.cert-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.cert-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+.btn-danger {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 2px solid #dc2626;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+    color: white;
+}
+
+/* ========================================
+   SUCCESS MESSAGE
+   ======================================== */
+.success-message {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 500;
+    z-index: 9999;
+    animation: slideInUp 0.4s ease;
+}
+
+.success-message i {
+    font-size: 1.5rem;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN FOR PROFILE PAGE
+   ======================================== */
+@media (max-width: 768px) {
+    .save-all-section {
+        flex-direction: column;
+    }
+    
+    .btn-large {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .image-upload-area {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .current-image {
+        width: 150px;
+        height: 150px;
+        font-size: 4rem;
+    }
+    
+    .upload-controls {
+        width: 100%;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cert-edit-item {
+        flex-direction: column;
+    }
+    
+    .cert-image-preview {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .success-message {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+    
+    .btn-edit {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .cert-actions {
+        flex-direction: column;
+    }
+    
+    .cert-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   LOADING ANIMATION (Optional Enhancement)
+   ======================================== */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   PULSE ANIMATION FOR UNSAVED CHANGES
+   ======================================== */
+.btn-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.6), 0 0 0 8px rgba(16, 185, 129, 0.2);
+    }
+}

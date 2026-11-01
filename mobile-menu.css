@@ -1,0 +1,348 @@
+/* ========================================
+   MOBILE MENU / HAMBURGER NAVIGATION
+   Responsive sidebar for mobile devices
+   ======================================== */
+
+/* Hamburger Menu Button - Hidden by default */
+.hamburger-menu {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    z-index: 10001;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+}
+
+/* Hamburger icon lines */
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger active state (X icon) */
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile Overlay - Darkens background when menu open */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE LAYOUT
+   ======================================== */
+
+/* Tablets and below */
+@media (max-width: 768px) {
+    /* Show hamburger menu */
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    /* Sidebar becomes overlay menu */
+    .sidebar {
+        position: fixed;
+        left: -320px; /* Hidden off-screen */
+        top: 0;
+        width: var(--sidebar-width);
+        height: 100vh;
+        z-index: 10000;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Sidebar visible state */
+    .sidebar.mobile-open {
+        left: 0;
+    }
+    
+    /* Main content shifts when sidebar open */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Optional: Push content when menu open */
+    body.menu-open .main-content {
+        /* transform: translateX(320px); */
+    }
+    
+    /* Prevent scroll when menu open */
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    /* Close button in sidebar */
+    .sidebar::before {
+        content: '\f00d';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        transition: background 0.3s ease;
+    }
+    
+    .sidebar::before:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Adjust floating buttons */
+    .theme-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .print-resume-btn {
+        bottom: 90px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 600px) {
+    :root {
+        --sidebar-width: 280px;
+    }
+    
+    .hamburger-menu {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        left: 15px;
+    }
+    
+    .hamburger-menu span {
+        width: 22px;
+        height: 2.5px;
+    }
+    
+    .sidebar {
+        left: -280px;
+        width: 280px;
+        padding: var(--spacing-md);
+    }
+    
+    .sidebar.mobile-open {
+        left: 0;
+    }
+    
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+    }
+    
+    .profile-name {
+        font-size: 1.2rem;
+    }
+    
+    .contact-info {
+        font-size: 0.85rem;
+    }
+    
+    /* Stack buttons vertically on very small screens */
+    .theme-toggle,
+    .print-resume-btn {
+        right: 15px;
+    }
+    
+    .theme-toggle {
+        bottom: 15px;
+    }
+    
+    .print-resume-btn {
+        bottom: 80px;
+    }
+}
+
+/* ========================================
+   ALTERNATIVE: TOP NAVBAR FOR MOBILE
+   Uncomment this section if you prefer top navbar
+   ======================================== */
+
+/* 
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .profile-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 0;
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    
+    .profile-pic {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    
+    .profile-name {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+    
+    .profile-title {
+        display: none;
+    }
+    
+    .nav-menu {
+        display: flex;
+        margin-bottom: 0;
+    }
+    
+    .nav-menu ul {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .nav-menu li {
+        margin-bottom: 0;
+    }
+    
+    .nav-menu a {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .contact-info {
+        display: none;
+    }
+    
+    .sidebar-footer {
+        display: none;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        margin-top: 140px;
+        padding: 1rem;
+    }
+}
+*/
+
+/* ========================================
+   LANDSCAPE MODE ADJUSTMENTS
+   ======================================== */
+@media (max-width: 768px) and (orientation: landscape) {
+    .sidebar {
+        width: 250px;
+        left: -250px;
+    }
+    
+    .sidebar.mobile-open {
+        left: 0;
+    }
+    
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    
+    .contact-info {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+}
+
+/* ========================================
+   SMOOTH TRANSITIONS
+   ======================================== */
+.sidebar,
+.mobile-overlay,
+.hamburger-menu span {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+.hamburger-menu:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+/* Skip to main content link for screen readers */
+.skip-to-main {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    z-index: 10002;
+    transition: top 0.3s ease;
+}
+
+.skip-to-main:focus {
+    top: 0;
+}

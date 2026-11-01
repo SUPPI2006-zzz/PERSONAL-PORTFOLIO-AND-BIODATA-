@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supreet Suresh Ambiger - Bio-Data</title>
+    
+    <!-- Inline Theme Script - Prevents Flash of Unstyled Content -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Mobile Hamburger Menu Button -->
+    <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Dark Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Profile Image -->
+            <div class="profile-image">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" id="profilePic" class="clickable-image">
+            </div>
+
+            <!-- Name and Title -->
+            <h1 class="profile-name" id="sidebarName">Supreet Suresh Ambiger</h1>
+            <p class="profile-title">Computer Science Student</p>
+
+            <!-- Contact Information -->
+            <div class="contact-section">
+                <h3>Contact</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span id="sidebarPhone">8217245816</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:supreetambiger@gmail.com" id="sidebarEmail">supreetambiger@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Hubballi Urban, Karnataka, India</span>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/supreet-suresh-ambiger-33158634a" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/SUPPI2006-zzz" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-user"></i> Bio-Data
+                </a>
+                <a href="resume.html" class="nav-link">
+                    <i class="fas fa-file-alt"></i> Resume
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <i class="fas fa-edit"></i> Edit Profile
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Header Section -->
+            <header class="page-header">
+                <h1 class="page-title" id="mainName">Supreet Suresh Ambiger</h1>
+                <p class="page-subtitle">Junior at KLE Institute of Technology, Hubballi</p>
+            </header>
+
+            <!-- Professional Summary Section -->
+            <section class="bio-section">
+                <h2 class="section-title">
+                    <i class="fas fa-address-card"></i>
+                    Professional Summary
+                </h2>
+                <div class="section-content">
+                    <p id="summaryParagraph">
+                        Junior at KLE Institute of Technology, Hubballi, pursuing Computer Science and Engineering with a focus on full-stack development. Passionate about creating innovative web applications and continuously learning new technologies.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="bio-section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Education
+                </h2>
+                <div class="section-content">
+                    <div class="education-item">
+                        <h3>B.E. Computer Science and Engineering</h3>
+                        <p class="institution">KLE Institute of Technology, Hubballi</p>
+                        <p class="duration">
+                            <i class="fas fa-calendar-alt"></i>
+                            September 2024 - June 2028
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="bio-section">
+                <h2 class="section-title">
+                    <i class="fas fa-code"></i>
+                    Technical Skills
+                </h2>
+                <div class="section-content">
+                    <div class="skills-grid" id="skillsList">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- jQuery Requirement A: Achievements Toggle Section -->
+            <section class="bio-section">
+                <h2 class="section-title">
+                    <i class="fas fa-trophy"></i>
+                    Achievements & Certifications
+                </h2>
+                <div class="section-content">
+                    <button type="button" class="toggle-btn" id="achievementsToggle">
+                        <i class="fas fa-chevron-down"></i>
+                        View Achievements
+                    </button>
+                    
+                    <div class="achievements-content" id="achievementsContent">
+                        <!-- Hackathons & Summits Sub-section -->
+                        <div class="achievement-subsection">
+                            <h3>
+                                <i class="fas fa-laptop-code"></i>
+                                Hackathons & Summits
+                            </h3>
+                            <div class="achievement-item" id="hackathon1">
+                                <div class="achievement-header">
+                                    <strong>CODE BHARAT 2025 – Certificate of Participation</strong>
+                                    <span class="achievement-date">Issued Nov 2025</span>
+                                </div>
+                                <p class="achievement-issuer">SAVISHKAR Karnataka North & IIIT Dharwad</p>
+                                <p class="achievement-description">
+                                    Built CurioQuest, a learning platform for Paradox Learning, during CODE BHARAT-25 at IIIT Dharwad. 
+                                    The project focused on creating an interactive educational website, applying web development, UI/UX design, 
+                                    and problem-solving skills in a competitive coding environment.
+                                </p>
+                                <div class="certificate-image-container" id="hackathon1ImageContainer"></div>
+                            </div>
+                            <div class="achievement-item" id="hackathon2">
+                                <div class="achievement-header">
+                                    <strong>AGAMYA TECH SUMMIT 2025 – EKAIVA Hackathon</strong>
+                                    <span class="achievement-date">2025</span>
+                                </div>
+                                <p class="achievement-issuer">Agamya Cyber Tech (in association with CySeck & IEEE Computer Society, KLE Institute of Technology)</p>
+                                <p class="achievement-description">
+                                    Participated in the EKAIVA Hackathon 2025 at SDMCET, Dharwad, organized by Agamya Cyber Tech in collaboration with 
+                                    CySeck and IEEE Computer Society. Gained exposure to collaborative problem-solving, innovative tech solutions, 
+                                    and real-world hackathon experience.
+                                </p>
+                                <div class="certificate-image-container" id="hackathon2ImageContainer"></div>
+                            </div>
+                        </div>
+
+                        <!-- Course Certifications Sub-section -->
+                        <div class="achievement-subsection">
+                            <h3>
+                                <i class="fas fa-certificate"></i>
+                                Course Certifications
+                            </h3>
+                            <div class="achievement-item" id="cert1">
+                                <div class="achievement-header">
+                                    <strong>Deloitte Australia - Data Analytics Job Simulation</strong>
+                                    <span class="achievement-date">Issued Mar 2026</span>
+                                </div>
+                                <p class="achievement-issuer">Forage</p>
+                                <p class="achievement-description">
+                                    Completed Deloitte Australia's Data Analytics Job Simulation on Forage. Applied data analysis and forensic 
+                                    technology skills, built a Tableau dashboard, and used Excel to classify data and draw business conclusions. 
+                                    Gained practical experience in analytics, visualization, and decision-making aligned with Deloitte's professional standards.
+                                </p>
+                                <div class="certificate-image-container" id="cert1ImageContainer"></div>
+                            </div>
+                            <div class="achievement-item" id="cert2">
+                                <div class="achievement-header">
+                                    <strong>AI Tools & ChatGPT Workshop</strong>
+                                    <span class="achievement-date">Issued Jan 2026</span>
+                                </div>
+                                <p class="achievement-issuer">Be10x</p>
+                                <p class="achievement-description">
+                                    Completed the be10x AI Tools & ChatGPT Workshop on January 18, 2026. Learned to create presentations in under 
+                                    5 minutes, analyze data in under 30 minutes, and code/debug in under 10 minutes using AI. Gained hands-on 
+                                    experience with Grok AI, GetMulti, Whisper Flow, Notebook LM, and Nano Banana Pro for productivity, research, 
+                                    and creative design applications.
+                                </p>
+                                <div class="certificate-image-container" id="cert2ImageContainer"></div>
+                            </div>
+                            <div class="achievement-item" id="cert3">
+                                <div class="achievement-header">
+                                    <strong>Tata GenAI Powered Data Analytics Job Simulation</strong>
+                                    <span class="achievement-date">Issued Dec 2025</span>
+                                </div>
+                                <p class="achievement-issuer">Forage AI</p>
+                                <p class="achievement-description">
+                                    Completed Tata Group's GenAI Powered Data Analytics Job Simulation on Forage (Dec 22, 2025). Conducted exploratory 
+                                    data analysis to assess quality and risks, proposed a no-code predictive modeling framework for delinquency detection, 
+                                    and designed an AI-driven collections strategy using agentic AI, automation, and ethical guardrails. Gained practical 
+                                    experience in AI-powered analytics and strategy development.
+                                </p>
+                                <div class="certificate-image-container" id="cert3ImageContainer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interests Section -->
+            <section class="bio-section">
+                <h2 class="section-title">
+                    <i class="fas fa-heart"></i>
+                    Interests
+                </h2>
+                <div class="section-content">
+                    <div class="interests-grid">
+                        <div class="interest-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <p>Web Development</p>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-robot"></i>
+                            <p>Artificial Intelligence</p>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-database"></i>
+                            <p>Database Design</p>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-book"></i>
+                            <p>Continuous Learning</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Want to Connect Section -->
+            <section class="connect-section">
+                <h2>Want to Connect?</h2>
+                <p>I am always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out!</p>
+                <div class="connect-buttons">
+                    <a href="mailto:supreetambiger@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/supreet-suresh-ambiger-33158634a" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <p>&copy; 2024 Supreet Suresh Ambiger. All rights reserved.</p>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Image Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+            <i class="fas fa-times"></i>
+        </button>
+        <img src="" alt="Enlarged view" id="lightboxImage">
+    </div>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="script.js?v=10"></script>
+</body>
+</html>

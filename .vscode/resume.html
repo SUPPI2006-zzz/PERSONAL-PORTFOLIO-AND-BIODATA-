@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supreet Suresh Ambiger - Resume</title>
+    
+    <!-- Inline Theme Script - Prevents Flash of Unstyled Content -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Mobile Hamburger Menu Button -->
+    <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Dark Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Profile Image -->
+            <div class="profile-image">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" id="profilePic" class="clickable-image">
+            </div>
+
+            <!-- Name and Title -->
+            <h1 class="profile-name" id="sidebarName">Supreet Suresh Ambiger</h1>
+            <p class="profile-title">Computer Science Student</p>
+
+            <!-- Contact Information -->
+            <div class="contact-section">
+                <h3>Contact</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span id="sidebarPhone">8217245816</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:supreetambiger@gmail.com" id="sidebarEmail">supreetambiger@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Hubballi Urban, Karnataka, India</span>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/supreet-suresh-ambiger-33158634a" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/SUPPI2006-zzz" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-user"></i> Bio-Data
+                </a>
+                <a href="resume.html" class="nav-link active">
+                    <i class="fas fa-file-alt"></i> Resume
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <i class="fas fa-edit"></i> Edit Profile
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Header Section -->
+            <header class="page-header">
+                <h1 class="page-title" id="mainName">Supreet Suresh Ambiger</h1>
+                <p class="page-subtitle">Computer Science and Engineering Student</p>
+                <div class="header-contact">
+                    <span><i class="fas fa-phone"></i> <span id="headerPhone">8217245816</span></span>
+                    <span><i class="fas fa-envelope"></i> <a href="mailto:supreetambiger@gmail.com" id="headerEmail">supreetambiger@gmail.com</a></span>
+                    <span><i class="fas fa-map-marker-alt"></i> Hubballi Urban, Karnataka</span>
+                </div>
+            </header>
+
+            <!-- Professional Summary Section -->
+            <section class="resume-section">
+                <h2 class="section-title">
+                    <i class="fas fa-user-circle"></i>
+                    Professional Summary
+                </h2>
+                <div class="section-content">
+                    <p>
+                        Motivated Computer Science and Engineering student at KLE Institute of Technology, Hubballi, with a strong foundation in full-stack development. Actively seeking opportunities to apply theoretical knowledge in practical settings and contribute to innovative software solutions. Passionate about emerging technologies, with hands-on experience in modern web development frameworks and programming languages.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="resume-section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Education Timeline
+                </h2>
+                <div class="section-content">
+                    <div class="education-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="resume-item-header">
+                                    <h3>Bachelor of Engineering (B.E.) in Computer Science and Engineering</h3>
+                                    <span class="date-range">September 2024 - June 2028</span>
+                                </div>
+                                <p class="institution">KLE Institute of Technology, Hubballi</p>
+                                <p class="description">Currently pursuing undergraduate degree with focus on software development, data structures, algorithms, and modern web technologies.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="resume-item-header">
+                                    <h3>PUC 2 (12th Grade)</h3>
+                                    <span class="date-range">Completed 2024</span>
+                                </div>
+                                <p class="institution">Medha PU College, Hubballi</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="resume-item-header">
+                                    <h3>PUC 1 (11th Grade)</h3>
+                                    <span class="date-range">Completed 2023</span>
+                                </div>
+                                <p class="institution">K.L.E Society's P. C. Jabin Science College, Hubballi</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="resume-item-header">
+                                    <h3>School (10th & Below)</h3>
+                                    <span class="date-range">Completed 2022</span>
+                                </div>
+                                <p class="institution">St. Antony's Public School, Vidyanagar, Hubballi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Skills Section -->
+            <section class="resume-section">
+                <h2 class="section-title">
+                    <i class="fas fa-laptop-code"></i>
+                    Technical Skills
+                </h2>
+                <div class="section-content">
+                    <div class="skills-category">
+                        <h3>Programming & Development</h3>
+                        <div class="skills-grid" id="skillsList">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C/C++</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Section -->
+            <section class="resume-section">
+                <h2 class="section-title">
+                    <i class="fas fa-trophy"></i>
+                    Achievements & Certifications
+                </h2>
+                <div class="section-content">
+                    <div class="resume-item">
+                        <h3>Hackathon Participation</h3>
+                        <ul class="achievement-list">
+                            <li><strong>CODE BHARAT 2025</strong> - Participated in national-level coding competition</li>
+                            <li><strong>AGAMYA TECH SUMMIT 2025</strong> - Showcased innovative tech solutions</li>
+                        </ul>
+                    </div>
+                    <div class="resume-item">
+                        <h3>Professional Certifications</h3>
+                        <ul class="achievement-list">
+                            <li><strong>AI Tools Workshop</strong> - Comprehensive training on modern AI development tools</li>
+                            <li><strong>GenAI Forage</strong> - Generative AI fundamentals and applications</li>
+                            <li><strong>Deloitte Forage</strong> - Professional development and consulting skills</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="resume-section">
+                <h2 class="section-title">
+                    <i class="fas fa-project-diagram"></i>
+                    Projects
+                </h2>
+                <div class="section-content">
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <h3>CurioQuest - Interactive Learning Platform</h3>
+                            <span class="date-range">Nov 2025</span>
+                        </div>
+                        <p class="description">
+                            A simple, playful learning app built for CODE BHARAT-25 hackathon. Turns boring concepts into quick experiments, 
+                            interactive tasks, and fun visual explorations. The goal is to help learners understand by doing, not memorizing. 
+                            Built with a clean frontend UI, Python Flask backend, and APIs for interactive learning tasks.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Python Flask</span>
+                            <span class="tech-badge">APIs</span>
+                        </div>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <h3>Mamaearth Returns & Growth Intelligence Pipeline</h3>
+                            <span class="date-range">2025</span>
+                        </div>
+                        <p class="description">
+                            Developed an intelligence pipeline to analyze return drivers and true revenue for Mamaearth. Used SQL for reporting, 
+                            Python/Pandas for data cleaning and analysis, and GenAI for presenting verified business insights. The project focused 
+                            on identifying key return patterns and revenue optimization opportunities through data-driven analysis.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">SQL</span>
+                            <span class="tech-badge">GenAI</span>
+                            <span class="tech-badge">Data Analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <h3>Learning System DBMS - Course Aggregator</h3>
+                            <span class="date-range">May 2024</span>
+                        </div>
+                        <p class="description">
+                            A full-stack DBMS-based web application that aggregates courses from Coursera, Udemy, edX, and YouTube, and delivers 
+                            personalized recommendations based on user interests and activity. Implements database design, user authentication, 
+                            and intelligent recommendation algorithms for enhanced learning experience.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">DBMS</span>
+                            <span class="tech-badge">APIs</span>
+                        </div>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-item-header">
+                            <h3>Resume & Bio-Data Portfolio Website</h3>
+                            <span class="date-range">2024</span>
+                        </div>
+                        <p class="description">
+                            Developed a responsive personal portfolio website featuring bio-data, resume, and profile editing capabilities. 
+                            Implemented using HTML5, CSS3, JavaScript, and jQuery with localStorage for data persistence. Features include 
+                            theme switching, image uploads, and dynamic content management.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">jQuery</span>
+                            <span class="tech-badge">LocalStorage</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Want to Connect Section -->
+            <section class="connect-section">
+                <h2>Want to Connect?</h2>
+                <p>I am always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out!</p>
+                <div class="connect-buttons">
+                    <a href="mailto:supreetambiger@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/supreet-suresh-ambiger-33158634a" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <p>&copy; 2024 Supreet Suresh Ambiger. All rights reserved.</p>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Image Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+            <i class="fas fa-times"></i>
+        </button>
+        <img src="" alt="Enlarged view" id="lightboxImage">
+    </div>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="script.js?v=10"></script>
+</body>
+</html>

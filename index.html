@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supreet Suresh Ambiger - Bio-Data</title>
+    
+    <!-- Google Fonts - Poppins for modern, professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- jQuery CDN - Required for assignment interactivity -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="image-modal.css">
+    <link rel="stylesheet" href="theme-switcher.css">
+    <link rel="stylesheet" href="mobile-menu.css">
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+    <!-- Left Sidebar - Fixed dark navigation panel -->
+    <aside class="sidebar">
+        <div class="profile-section">
+            <!-- Profile Picture Placeholder -->
+            <div class="profile-pic">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h2 class="profile-name">Supreet Suresh Ambiger</h2>
+            <p class="profile-title">Computer Science Student</p>
+        </div>
+
+        <!-- Navigation Menu with active page highlighting -->
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-user"></i> Bio-Data</a></li>
+                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a></li>
+                <li><a href="profile.html"><i class="fas fa-edit"></i> Edit Profile</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h3>Contact</h3>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:supreetambiger@gmail.com">supreetambiger@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:8217245816">8217245816</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Hubballi Urban, Karnataka, India</span>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/supreet-suresh-ambiger-33158634a" target="_blank">LinkedIn Profile</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/SUPPI2006-zzz" target="_blank">GitHub Profile</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="sidebar-footer">
+            <p>&copy; 2025 Supreet Ambiger</p>
+        </div>
+    </aside>
+
+    <!-- Main Content Area - Right side white background -->
+    <main class="main-content">
+        <!-- About Section -->
+        <section class="content-section about-section">
+            <h1 class="section-title">About Me</h1>
+            <div class="card">
+                <p class="lead" id="summary-paragraph">
+                    Junior at KLE Institute of Technology, Hubballi, pursuing Computer Science and Engineering with a focus on full-stack development. I build end-to-end applications by combining strong frontend fundamentals with growing backend expertise, always aiming for scalable, efficient solutions.
+                </p>
+                <!-- JavaScript will append additional content here after 1 second -->
+            </div>
+        </section>
+
+        <!-- Top Skills Section -->
+        <section class="content-section skills-section">
+            <h2 class="section-title">Top Skills</h2>
+            <div class="card">
+                <div class="skills-grid">
+                    <span class="skill-tag">Gen AI</span>
+                    <span class="skill-tag">Python (Intermediate)</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Full-Stack Development</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="content-section education-section">
+            <h2 class="section-title">Education</h2>
+            
+            <!-- College Education - Engineering -->
+            <div class="card timeline-card">
+                <div class="timeline-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Engineering (B.E.) - Computer Science</h3>
+                    <p class="institution"><a href="https://kleit.ac.in/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; transition: all 0.3s ease;">KLE Institute of Technology, Hubballi <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a></p>
+                    <p class="duration"><i class="fas fa-calendar-alt"></i> September 2024 - June 2028</p>
+                </div>
+            </div>
+            
+            <!-- Pre-University - 2nd Year (12th) -->
+            <div class="card timeline-card">
+                <div class="timeline-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Pre-University Course (12th Grade)</h3>
+                    <p class="institution"><a href="https://www.medhacollege.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; transition: all 0.3s ease;">Medha PU College, Hubballi <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a></p>
+                    <p class="duration"><i class="fas fa-calendar-alt"></i> 2nd Year PUC</p>
+                </div>
+            </div>
+            
+            <!-- Pre-University - 1st Year (11th) -->
+            <div class="card timeline-card">
+                <div class="timeline-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Pre-University Course (11th Grade)</h3>
+                    <p class="institution"><a href="https://jabincollege.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; transition: all 0.3s ease;">K.L.E Society's P. C. Jabin Science College, Hubballi <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a></p>
+                    <p class="duration"><i class="fas fa-calendar-alt"></i> 1st Year PUC</p>
+                </div>
+            </div>
+            
+            <!-- School Education -->
+            <div class="card timeline-card">
+                <div class="timeline-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>High School Education (10th & Below)</h3>
+                    <p class="institution"><a href="https://stantonyps.edu.in/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; transition: all 0.3s ease;">St. Antony's Public School, Vidyanagar, Hubballi <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a></p>
+                    <p class="duration"><i class="fas fa-calendar-alt"></i> Primary & Secondary Education</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section with Toggle Button (Assignment Requirement A) -->
+        <section class="content-section achievements-section">
+            <h2 class="section-title">Achievements</h2>
+            
+            <!-- Toggle Button - Uses jQuery slideToggle animation -->
+            <button id="toggle-achievements" class="toggle-btn">
+                <i class="fas fa-eye"></i> View Achievements
+            </button>
+
+            <!-- Hidden Achievements Container - Initially hidden, revealed by slideToggle -->
+            <div id="achievements-container" style="display: none;">
+                
+                <!-- Achievement Card 1: Hackathons & Summits -->
+                <div class="card achievement-card">
+                    <div class="achievement-header">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Hackathons & Summits</h3>
+                    </div>
+                    <ul class="achievement-list">
+                        <li>
+                            <strong>CODE BHARAT 2025 - Certificate of Participation</strong>
+                            <p><em>SAVISHKAR Karnataka North & IIIT Dharwad | Issued Nov 2025</em></p>
+                            <p>Built CurioQuest, a learning platform for Paradox Learning, during CODE BHARAT-25 at IIIT Dharwad. The project focused on creating an interactive educational website, applying web development, UI/UX design, and problem-solving skills in a competitive coding environment.</p>
+                        </li>
+                        <li>
+                            <strong>AGAMYA TECH SUMMIT 2025 - EKAIVA Hackathon</strong>
+                            <p><em>Agamya Cyber Tech (in association with CySeck & IEEE Computer Society, KLE Institute of Technology)</em></p>
+                            <p>Participated in the EKAIVA Hackathon 2025 at SDMCET, Dharwad, organized by Agamya Cyber Tech in collaboration with CySeck and IEEE Computer Society. Gained exposure to collaborative problem-solving, innovative tech solutions, and real-world hackathon experience.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Achievement Card 2: Course Certifications & Job Simulations -->
+                <div class="card achievement-card">
+                    <div class="achievement-header">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Course Certifications & Job Simulations</h3>
+                    </div>
+                    <ul class="achievement-list">
+                        <li>
+                            <strong>AI Tools & ChatGPT Workshop</strong>
+                            <p><em>Be10x | Issued Jan 2026</em></p>
+                            <p>Completed the be10x AI Tools & ChatGPT Workshop on January 18, 2026. Learned to create presentations in under 5 minutes, analyze data in under 30 minutes, and code/debug in under 10 minutes using AI. Gained hands-on experience with Grok AI, GetMulti, Whisper Flow, Notebook LM, and Nano Banana Pro for productivity, research, and creative design applications.</p>
+                        </li>
+                        <li>
+                            <strong>GenAI Powered Data Analytics Job Simulation</strong>
+                            <p><em>Forage AI | Issued Dec 2025</em></p>
+                            <p>Completed Tata Group's GenAI Powered Data Analytics Job Simulation on Forage (Dec 22, 2025). Conducted exploratory data analysis to assess quality and risks, proposed a no-code predictive modeling framework for delinquency detection, and designed an AI-driven collections strategy using agentic AI, automation, and ethical guardrails. Gained practical experience in AI-powered analytics and strategy development.</p>
+                        </li>
+                        <li>
+                            <strong>Deloitte Australia - Data Analytics Job Simulation</strong>
+                            <p><em>Forage | Issued Mar 2026</em></p>
+                            <p>Completed Deloitte Australia's Data Analytics Job Simulation on Forage. Applied data analysis and forensic technology skills, built a Tableau dashboard, and used Excel to classify data and draw business conclusions. Gained practical experience in analytics, visualization, and decision-making aligned with Deloitte's professional standards.</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="content-section cta-section">
+            <div class="card cta-card">
+                <h2>Let's Connect!</h2>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:supreetambiger@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/supreet-suresh-ambiger-33158634a" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Custom JavaScript with jQuery interactions -->
+    <script src="script.js"></script>
+    <script src="sync-data.js"></script>
+    <script src="image-modal.js"></script>
+    <script src="theme-switcher.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>Create a user interface component that displays information about items. When an item is clicked, a complete image and detailed information about that item should be presented, similar to a 'bio data' display. This component should also include a 'Get in Touch' section with icons for Gmail and LinkedIn. Clicking the Gmail icon should initiate an email composition, and clicking the LinkedIn icon should open the user's LinkedIn profile or a relevant LinkedIn contact page.

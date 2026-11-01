@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Test</title>
+    
+    <!-- Inline Theme Script - Prevents Flash of Unstyled Content -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { padding: 20px; }
+    </style>
+</head>
+<body>
+    <h1>CSS Test Page</h1>
+    
+    <h2>Test 1: Skills Tags</h2>
+    <div class="skills-grid">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+    </div>
+    
+    <h2>Test 2: View Achievements Button</h2>
+    <button class="toggle-btn" id="achievementsToggle">
+        <i class="fas fa-chevron-down"></i>
+        View Achievements
+    </button>
+    
+    <h2>Test 3: Connect Section</h2>
+    <section class="connect-section">
+        <h2>Want to Connect?</h2>
+        <p>I am always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out!</p>
+        <div class="connect-buttons">
+            <a href="mailto:test@example.com" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Email Me
+            </a>
+            <a href="#" class="btn btn-secondary">
+                <i class="fab fa-linkedin"></i> Connect on LinkedIn
+            </a>
+        </div>
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</body>
+</html>

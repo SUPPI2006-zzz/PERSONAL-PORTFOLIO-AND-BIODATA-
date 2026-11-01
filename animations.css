@@ -1,0 +1,455 @@
+/* ========================================
+   SCROLL ANIMATIONS & PROFESSIONAL POLISH
+   Fade-in and slide-up animations on scroll
+   ======================================== */
+
+/* Base state for elements that will animate */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Visible state when element enters viewport */
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays for multiple elements */
+.animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+.animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+.animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+.animate-on-scroll:nth-child(4) { transition-delay: 0.4s; }
+.animate-on-scroll:nth-child(5) { transition-delay: 0.5s; }
+.animate-on-scroll:nth-child(6) { transition-delay: 0.6s; }
+
+/* Fade in from left */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade in from right */
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale animation */
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ========================================
+   ENHANCED BUTTON HOVER EFFECTS
+   Tactile, responsive button interactions
+   ======================================== */
+
+/* Primary buttons */
+.btn-primary,
+.btn,
+.toggle-btn,
+#save-all-btn,
+.btn-add {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover,
+.btn:hover,
+.toggle-btn:hover,
+#save-all-btn:hover,
+.btn-add:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.btn-primary:active,
+.btn:active,
+.toggle-btn:active,
+#save-all-btn:active,
+.btn-add:active {
+    transform: translateY(-1px) scale(1.01);
+}
+
+/* Secondary buttons */
+.btn-secondary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Edit buttons */
+.btn-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Small buttons */
+.btn-sm:hover {
+    transform: translateY(-2px);
+}
+
+/* Remove buttons */
+.btn-remove:hover,
+.btn-danger:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+/* Ripple effect on button click */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-ripple:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* ========================================
+   ENHANCED CARD HOVER EFFECTS
+   ======================================== */
+.card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-card:hover {
+    border-left: 4px solid var(--primary-color);
+}
+
+/* ========================================
+   SKILL TAG ANIMATIONS
+   ======================================== */
+.skill-tag {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* ========================================
+   EMPTY STATE STYLES
+   Gentle messages when sections are empty
+   ======================================== */
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-muted);
+    background: var(--body-bg);
+    border-radius: var(--radius-md);
+    border: 2px dashed var(--border-color);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.empty-state p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+.empty-state a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.empty-state a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   PRINT RESUME BUTTON
+   ======================================== */
+.print-resume-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    transition: all 0.3s ease;
+    z-index: 9997;
+}
+
+.print-resume-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
+}
+
+.print-resume-btn::before {
+    content: 'Print Resume';
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.print-resume-btn:hover::before {
+    opacity: 1;
+}
+
+/* Hide print button on profile page */
+body:has(#profile-page) .print-resume-btn {
+    display: none;
+}
+
+/* ========================================
+   SMOOTH SCROLL BEHAVIOR
+   ======================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========================================
+   LOADING SPINNER (for async operations)
+   ======================================== */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   PULSE ANIMATION FOR ATTENTION
+   ======================================== */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.6), 0 0 0 8px rgba(16, 185, 129, 0.2);
+    }
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+   ======================================== */
+@media (max-width: 600px) {
+    .print-resume-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 80px;
+        right: 20px;
+        font-size: 1.2rem;
+    }
+    
+    .print-resume-btn::before {
+        display: none;
+    }
+    
+    /* Reduce animation intensity on mobile */
+    .animate-on-scroll {
+        transform: translateY(15px);
+    }
+    
+    .btn-primary:hover,
+    .btn:hover {
+        transform: translateY(-2px) scale(1.02);
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   Clean, professional print layout
+   ======================================== */
+@media print {
+    /* Hide non-essential elements */
+    .sidebar,
+    .theme-toggle,
+    .print-resume-btn,
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-edit,
+    .toggle-btn,
+    .cta-buttons,
+    .image-modal-overlay,
+    nav,
+    .nav-menu {
+        display: none !important;
+    }
+    
+    /* Reset layout for print */
+    body {
+        background: white !important;
+        color: black !important;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+        padding: 20px !important;
+        width: 100% !important;
+        background: white !important;
+    }
+    
+    /* Card styles for print */
+    .card {
+        background: white !important;
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin-bottom: 20px !important;
+    }
+    
+    /* Section titles */
+    .section-title {
+        color: black !important;
+        border-bottom: 2px solid #10b981;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    
+    /* Skills in print */
+    .skill-tag {
+        background: #f0f0f0 !important;
+        color: black !important;
+        border: 1px solid #ddd !important;
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 5px;
+    }
+    
+    /* Timeline cards */
+    .timeline-card {
+        border-left: 3px solid #10b981 !important;
+        padding-left: 20px;
+    }
+    
+    .timeline-icon {
+        display: none;
+    }
+    
+    /* Project cards */
+    .project-card {
+        border-left: 3px solid #10b981 !important;
+    }
+    
+    /* Hide achievements toggle (show all) */
+    #achievements-container {
+        display: block !important;
+    }
+    
+    /* Text colors for print */
+    h1, h2, h3, h4, h5, h6,
+    p, li, span, div {
+        color: black !important;
+    }
+    
+    .text-muted,
+    .description,
+    .institution,
+    .duration {
+        color: #666 !important;
+    }
+    
+    /* Links in print */
+    a {
+        color: #10b981 !important;
+        text-decoration: underline;
+    }
+    
+    /* Page breaks */
+    .content-section {
+        page-break-inside: avoid;
+    }
+    
+    /* Header for print */
+    @page {
+        margin: 1cm;
+    }
+    
+    /* First page header with name */
+    .main-content::before {
+        content: 'Supreet Suresh Ambiger - Resume';
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #10b981;
+    }
+}

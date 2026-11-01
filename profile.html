@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - Supreet Suresh Ambiger</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile-style.css">
+    <link rel="stylesheet" href="image-modal.css">
+    <link rel="stylesheet" href="theme-switcher.css">`n    <link rel="stylesheet" href="mobile-menu.css">`n    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+        <div class="profile-section">
+            <!-- Editable Profile Picture with Upload -->
+            <div class="profile-pic" id="sidebar-profile-pic">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h2 class="profile-name" id="sidebar-name">Supreet Suresh Ambiger</h2>
+            <p class="profile-title">Computer Science Student</p>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-user"></i> Bio-Data</a></li>
+                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a></li>
+                <li><a href="profile.html" class="active"><i class="fas fa-edit"></i> Edit Profile</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contact Information (dynamic) -->
+        <div class="contact-info">
+            <h3>Contact</h3>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:supreetambiger@gmail.com" id="sidebar-email">supreetambiger@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:8217245816" id="sidebar-phone">8217245816</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="sidebar-location">Hubballi Urban, Karnataka, India</span>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/supreet-suresh-ambiger-33158634a" target="_blank" id="sidebar-linkedin">LinkedIn Profile</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/SUPPI2006-zzz" target="_blank" id="sidebar-github">GitHub Profile</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="sidebar-footer">
+            <p>&copy; 2025 Supreet Ambiger</p>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <section class="content-section">
+            <h1 class="section-title">
+                <i class="fas fa-user-edit"></i> Edit Your Profile
+            </h1>
+            <p class="subtitle">Update your information, upload images, and manage your profile sections</p>
+
+            <!-- Save All Button at the Top -->
+            <div class="save-all-section">
+                <button class="btn btn-primary btn-large" id="save-all-btn">
+                    <i class="fas fa-save"></i> Save All Changes
+                </button>
+                <button class="btn btn-secondary btn-large" id="reset-all-btn">
+                    <i class="fas fa-undo"></i> Reset All
+                </button>
+            </div>
+
+            <!-- Profile Picture Upload Section -->
+            <div class="card edit-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-camera"></i> Profile Picture</h2>
+                    <button class="btn-edit" onclick="toggleEdit('profile-pic-section')">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+                <div class="section-content" id="profile-pic-section">
+                    <div class="image-upload-area">
+                        <div class="current-image" id="current-profile-pic">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="upload-controls">
+                            <input type="file" id="profile-pic-input" accept="image/*" style="display: none;">
+                            <button class="btn btn-primary" onclick="document.getElementById('profile-pic-input').click()">
+                                <i class="fas fa-upload"></i> Upload New Picture
+                            </button>
+                            <button class="btn btn-secondary" onclick="removeProfilePic()">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                            <p class="help-text">Recommended: Square image, min 300x300px</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Information Section -->
+            <div class="card edit-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-id-card"></i> Personal Information</h2>
+                    <button class="btn-edit" onclick="toggleEdit('personal-info-section')">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+                <div class="section-content editable-section" id="personal-info-section">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="edit-name"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="edit-name" class="form-control" value="Supreet Suresh Ambiger">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-email"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" id="edit-email" class="form-control" value="supreetambiger@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-phone"><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" id="edit-phone" class="form-control" value="8217245816">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-location"><i class="fas fa-map-marker-alt"></i> Location</label>
+                            <input type="text" id="edit-location" class="form-control" value="Hubballi Urban, Karnataka, India">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-linkedin"><i class="fab fa-linkedin"></i> LinkedIn Profile URL</label>
+                            <input type="url" id="edit-linkedin" class="form-control" value="https://www.linkedin.com/in/supreet-suresh-ambiger-33158634a">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-github"><i class="fab fa-github"></i> GitHub Profile URL</label>
+                            <input type="url" id="edit-github" class="form-control" value="https://github.com/SUPPI2006-zzz">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Summary Section -->
+            <div class="card edit-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-briefcase"></i> Professional Summary</h2>
+                    <button class="btn-edit" onclick="toggleEdit('summary-section')">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+                <div class="section-content editable-section" id="summary-section">
+                    <div class="form-group">
+                        <label for="edit-summary">About You</label>
+                        <textarea id="edit-summary" class="form-control" rows="5">Junior at KLE Institute of Technology, Hubballi, pursuing Computer Science and Engineering with a focus on full-stack development. I build end-to-end applications by combining strong frontend fundamentals with growing backend expertise, always aiming for scalable, efficient solutions.</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Section -->
+            <div class="card edit-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <button class="btn-edit" onclick="toggleEdit('education-section')">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+                <div class="section-content editable-section" id="education-section">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="edit-college-name"><i class="fas fa-university"></i> College Name</label>
+                            <input type="text" id="edit-college-name" class="form-control" value="KLE Institute of Technology, Hubballi"><small style="color: #64748b; display: block; margin-top: 4px;"><i class="fas fa-info-circle"></i> Website: <a href="https://kleit.ac.in/" target="_blank" style="color: var(--primary-color);">kleit.ac.in</a></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-degree"><i class="fas fa-certificate"></i> Degree</label>
+                            <input type="text" id="edit-degree" class="form-control" value="Bachelor of Engineering (B.E.)">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-major"><i class="fas fa-laptop-code"></i> Major/Specialization</label>
+                            <input type="text" id="edit-major" class="form-control" value="Computer Science and Engineering">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-college-start"><i class="fas fa-calendar-alt"></i> Start Date</label>
+                            <input type="text" id="edit-college-start" class="form-control" value="September 2024">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-college-end"><i class="fas fa-calendar-check"></i> End Date</label>
+                            <input type="text" id="edit-college-end" class="form-control" value="June 2028">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-school-name"><i class="fas fa-school"></i> School Name</label>
+                            <input type="text" id="edit-school-name" class="form-control" value="St. Antony's Public School, Vidyanagar, Hubballi"><small style="color: #64748b; display: block; margin-top: 4px;"><i class="fas fa-info-circle"></i> Website: <a href="https://stantonyps.edu.in/" target="_blank" style="color: var(--primary-color);">stantonyps.edu.in</a></small>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-school-description"><i class="fas fa-info-circle"></i> School Description</label>
+                            <textarea id="edit-school-description" class="form-control" rows="2">Completed primary and secondary education with a strong foundation in academics and extracurricular activities.</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section (Editable) -->
+            <div class="card edit-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-code"></i> Technical Skills</h2>
+                    <button class="btn-edit" onclick="toggleEdit('skills-section')">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+                <div class="section-content editable-section" id="skills-section">
+                    <div id="skills-list" class="skills-edit-list">
+                        <!-- Skills will be dynamically added here -->
+                        <div class="skill-item">
+                            <input type="text" class="form-control skill-input" value="Gen AI">
+                            <button class="btn-remove" onclick="removeSkill(this)"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="skill-item">
+                            <input type="text" class="form-control skill-input" value="Python (Intermediate)">
+                            <button class="btn-remove" onclick="removeSkill(this)"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="skill-item">
+                            <input type="text" class="form-control skill-input" value="SQL">
+                            <button class="btn-remove" onclick="removeSkill(this)"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="skill-item">
+                            <input type="text" class="form-control skill-input" value="Full-Stack Development">
+                            <button class="btn-remove" onclick="removeSkill(this)"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-add" onclick="addSkill()">
+                        <i class="fas fa-plus"></i> Add New Skill
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hackathon Certifications Section -->
+            <div class="card edit-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-trophy"></i> Hackathon Certifications</h2>
+                    <button class="btn-edit" onclick="toggleEdit('hackathon-section')">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+                <div class="section-content editable-section" id="hackathon-section">
+                    <div id="hackathon-list" class="certification-list">
+                        <!-- Hackathon items will be added here -->
+                        <div class="cert-edit-item">
+                            <div class="cert-image-preview" data-cert-type="hackathon-0">
+                                <i class="fas fa-image"></i>
+                                <span>No image uploaded</span>
+                            </div>
+                            <div class="cert-details">
+                                <input type="text" class="form-control" placeholder="Hackathon Name" value="CODE BHARAT 2025 - Certificate of Participation">
+                                <textarea class="form-control" rows="3" placeholder="Description">SAVISHKAR Karnataka North & IIIT Dharwad | Issued Nov 2025
+
+Built CurioQuest, a learning platform for Paradox Learning, during CODE BHARAT-25 at IIIT Dharwad. The project focused on creating an interactive educational website, applying web development, UI/UX design, and problem-solving skills in a competitive coding environment.</textarea>
+                                <input type="file" class="cert-image-input" accept="image/*" data-target="hackathon-0" style="display: none;">
+                                <div class="cert-actions">
+                                    <button class="btn btn-sm btn-secondary" onclick="this.parentElement.parentElement.querySelector('.cert-image-input').click()">
+                                        <i class="fas fa-upload"></i> Upload Certificate
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" onclick="removeCertItem(this)">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cert-edit-item">
+                            <div class="cert-image-preview" data-cert-type="hackathon-1">
+                                <i class="fas fa-image"></i>
+                                <span>No image uploaded</span>
+                            </div>
+                            <div class="cert-details">
+                                <input type="text" class="form-control" placeholder="Hackathon Name" value="AGAMYA TECH SUMMIT 2025 - EKAIVA Hackathon">
+                                <textarea class="form-control" rows="3" placeholder="Description">Agamya Cyber Tech (in association with CySeck & IEEE Computer Society, KLE Institute of Technology)
+
+Participated in the EKAIVA Hackathon 2025 at SDMCET, Dharwad, organized by Agamya Cyber Tech in collaboration with CySeck and IEEE Computer Society. Gained exposure to collaborative problem-solving, innovative tech solutions, and real-world hackathon experience.</textarea>
+                                <input type="file" class="cert-image-input" accept="image/*" data-target="hackathon-1" style="display: none;">
+                                <div class="cert-actions">
+                                    <button class="btn btn-sm btn-secondary" onclick="this.parentElement.parentElement.querySelector('.cert-image-input').click()">
+                                        <i class="fas fa-upload"></i> Upload Certificate
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" onclick="removeCertItem(this)">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-add" onclick="addHackathon()">
+                        <i class="fas fa-plus"></i> Add New Hackathon
+                    </button>
+                </div>
+            </div>
+
+            <!-- Course Certifications Section -->
+            <div class="card edit-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-certificate"></i> Course Certifications</h2>
+                    <button class="btn-edit" onclick="toggleEdit('certification-section')">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+                <div class="section-content editable-section" id="certification-section">
+                    <div id="certification-list" class="certification-list">
+                        <!-- Certification items -->
+                        <div class="cert-edit-item">
+                            <div class="cert-image-preview" data-cert-type="cert-0">
+                                <i class="fas fa-image"></i>
+                                <span>No image uploaded</span>
+                            </div>
+                            <div class="cert-details">
+                                <input type="text" class="form-control" placeholder="Certification Name" value="AI Tools & ChatGPT Workshop">
+                                <textarea class="form-control" rows="3" placeholder="Description">Be10x | Issued Jan 2026
+
+Completed the be10x AI Tools & ChatGPT Workshop on January 18, 2026. Learned to create presentations in under 5 minutes, analyze data in under 30 minutes, and code/debug in under 10 minutes using AI. Gained hands-on experience with Grok AI, GetMulti, Whisper Flow, Notebook LM, and Nano Banana Pro for productivity, research, and creative design applications.</textarea>
+                                <input type="file" class="cert-image-input" accept="image/*" data-target="cert-0" style="display: none;">
+                                <div class="cert-actions">
+                                    <button class="btn btn-sm btn-secondary" onclick="this.parentElement.parentElement.querySelector('.cert-image-input').click()">
+                                        <i class="fas fa-upload"></i> Upload Certificate
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" onclick="removeCertItem(this)">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cert-edit-item">
+                            <div class="cert-image-preview" data-cert-type="cert-1">
+                                <i class="fas fa-image"></i>
+                                <span>No image uploaded</span>
+                            </div>
+                            <div class="cert-details">
+                                <input type="text" class="form-control" placeholder="Certification Name" value="GenAI Powered Data Analytics Job Simulation">
+                                <textarea class="form-control" rows="3" placeholder="Description">Forage AI | Issued Dec 2025
+
+Completed Tata Group's GenAI Powered Data Analytics Job Simulation on Forage (Dec 22, 2025). Conducted exploratory data analysis to assess quality and risks, proposed a no-code predictive modeling framework for delinquency detection, and designed an AI-driven collections strategy using agentic AI, automation, and ethical guardrails. Gained practical experience in AI-powered analytics and strategy development.</textarea>
+                                <input type="file" class="cert-image-input" accept="image/*" data-target="cert-1" style="display: none;">
+                                <div class="cert-actions">
+                                    <button class="btn btn-sm btn-secondary" onclick="this.parentElement.parentElement.querySelector('.cert-image-input').click()">
+                                        <i class="fas fa-upload"></i> Upload Certificate
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" onclick="removeCertItem(this)">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cert-edit-item">
+                            <div class="cert-image-preview" data-cert-type="cert-2">
+                                <i class="fas fa-image"></i>
+                                <span>No image uploaded</span>
+                            </div>
+                            <div class="cert-details">
+                                <input type="text" class="form-control" placeholder="Certification Name" value="Deloitte Australia - Data Analytics Job Simulation">
+                                <textarea class="form-control" rows="3" placeholder="Description">Forage | Issued Mar 2026
+
+Completed Deloitte Australia's Data Analytics Job Simulation on Forage. Applied data analysis and forensic technology skills, built a Tableau dashboard, and used Excel to classify data and draw business conclusions. Gained practical experience in analytics, visualization, and decision-making aligned with Deloitte's professional standards.</textarea>
+                                <input type="file" class="cert-image-input" accept="image/*" data-target="cert-2" style="display: none;">
+                                <div class="cert-actions">
+                                    <button class="btn btn-sm btn-secondary" onclick="this.parentElement.parentElement.querySelector('.cert-image-input').click()">
+                                        <i class="fas fa-upload"></i> Upload Certificate
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" onclick="removeCertItem(this)">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-add" onclick="addCertification()">
+                        <i class="fas fa-plus"></i> Add New Certification
+                    </button>
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <div id="success-message" class="success-message" style="display: none;">
+                <i class="fas fa-check-circle"></i> Profile updated successfully!
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Custom JavaScript for Profile Editing -->
+    <script src="script.js"></script>
+    <script src="profile-script.js"></script>
+    <script src="image-modal.js"></script>
+    <script src="theme-switcher.js"></script>`n    <script src="mobile-menu.js"></script>`n    <script src="animations.js"></script>
+</body>
+</html>
+
+

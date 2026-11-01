@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - Supreet Suresh Ambiger</title>
+    
+    <!-- Inline Theme Script - Prevents Flash of Unstyled Content -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Mobile Hamburger Menu Button -->
+    <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Dark Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Profile Image -->
+            <div class="profile-image">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" id="profilePic" class="clickable-image">
+            </div>
+
+            <!-- Name and Title -->
+            <h1 class="profile-name" id="sidebarName">Supreet Suresh Ambiger</h1>
+            <p class="profile-title">Computer Science Student</p>
+
+            <!-- Contact Information -->
+            <div class="contact-section">
+                <h3>Contact</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span id="sidebarPhone">8217245816</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:supreetambiger@gmail.com" id="sidebarEmail">supreetambiger@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Hubballi Urban, Karnataka, India</span>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/supreet-suresh-ambiger-33158634a" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/SUPPI2006-zzz" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-user"></i> Bio-Data
+                </a>
+                <a href="resume.html" class="nav-link">
+                    <i class="fas fa-file-alt"></i> Resume
+                </a>
+                <a href="profile.html" class="nav-link active">
+                    <i class="fas fa-edit"></i> Edit Profile
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Header Section -->
+            <header class="page-header">
+                <h1 class="page-title">
+                    <i class="fas fa-user-edit"></i>
+                    Edit Profile
+                </h1>
+                <p class="page-subtitle">Update your personal information, skills, and certificates</p>
+            </header>
+
+            <!-- Success Message (Hidden by default) -->
+            <div class="alert alert-success" id="successAlert">
+                <i class="fas fa-check-circle"></i>
+                <span>Profile updated successfully! Changes will be reflected across all pages.</span>
+            </div>
+
+            <!-- Edit Profile Form -->
+            <section class="profile-form-section">
+                <form id="profileForm" class="profile-form">
+                    <!-- Profile Picture Upload Card -->
+                    <div class="form-card">
+                        <h2 class="form-card-title">
+                            <i class="fas fa-camera"></i>
+                            Profile Picture
+                        </h2>
+                        <div class="form-card-content">
+                            <div class="form-group">
+                                <label for="profileImageUpload">
+                                    <i class="fas fa-upload"></i>
+                                    Upload Profile Picture
+                                </label>
+                                <div class="image-upload-container">
+                                    <input 
+                                        type="file" 
+                                        id="profileImageUpload" 
+                                        accept="image/*" 
+                                        class="file-input"
+                                    >
+                                    <button type="button" class="btn btn-primary" id="profileImageBtn">
+                                        <i class="fas fa-upload"></i>
+                                        Choose Profile Image
+                                    </button>
+                                    <span class="file-name" id="profileFileName">No file chosen</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Information Card -->
+                    <div class="form-card">
+                        <h2 class="form-card-title">
+                            <i class="fas fa-user"></i>
+                            Personal Information
+                        </h2>
+                        <div class="form-card-content">
+                            <div class="form-group">
+                                <label for="editName">
+                                    <i class="fas fa-signature"></i>
+                                    Full Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="editName" 
+                                    class="form-input" 
+                                    placeholder="Enter your full name"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="editPhone">
+                                        <i class="fas fa-phone"></i>
+                                        Phone Number
+                                    </label>
+                                    <input 
+                                        type="tel" 
+                                        id="editPhone" 
+                                        class="form-input" 
+                                        placeholder="Enter phone number"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="editEmail">
+                                        <i class="fas fa-envelope"></i>
+                                        Email Address
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        id="editEmail" 
+                                        class="form-input" 
+                                        placeholder="Enter email address"
+                                        required
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Management Card -->
+                    <div class="form-card">
+                        <h2 class="form-card-title">
+                            <i class="fas fa-code"></i>
+                            Technical Skills
+                        </h2>
+                        <div class="form-card-content">
+                            <div class="form-group">
+                                <label for="skillInput">
+                                    <i class="fas fa-plus-circle"></i>
+                                    Add New Skill
+                                </label>
+                                <div class="skill-input-group">
+                                    <input 
+                                        type="text" 
+                                        id="skillInput" 
+                                        class="form-input" 
+                                        placeholder="Enter a skill (e.g., Python, React, SQL)"
+                                    >
+                                    <button type="button" class="btn btn-add" id="addSkillBtn">
+                                        <i class="fas fa-plus"></i>
+                                        Add Skill
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Current Skills Display -->
+                            <div class="current-skills">
+                                <h3>Current Skills</h3>
+                                <p class="skills-help-text">Click on any skill to remove it</p>
+                                <div class="skills-list" id="editSkillsList">
+                                    <!-- Skills will be dynamically populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Upload Card -->
+                    <div class="form-card">
+                        <h2 class="form-card-title">
+                            <i class="fas fa-certificate"></i>
+                            Certificates & Achievements
+                        </h2>
+                        <div class="form-card-content">
+                            <p class="form-help-text">Upload certificate images for your hackathons and course certifications. Click on any uploaded image to view it in full size.</p>
+                            
+                            <!-- Hackathon 1 -->
+                            <div class="certificate-upload-group">
+                                <label>
+                                    <i class="fas fa-trophy"></i>
+                                    CODE BHARAT 2025
+                                </label>
+                                <div class="image-upload-container">
+                                    <input type="file" id="hackathon1Upload" accept="image/*" class="file-input">
+                                    <button type="button" class="btn btn-primary upload-cert-btn" data-target="hackathon1Upload">
+                                        <i class="fas fa-upload"></i>
+                                        Upload
+                                    </button>
+                                    <span class="file-name" id="hackathon1FileName">No file chosen</span>
+                                </div>
+                                <div class="certificate-preview" id="hackathon1Preview"></div>
+                            </div>
+
+                            <!-- Hackathon 2 -->
+                            <div class="certificate-upload-group">
+                                <label>
+                                    <i class="fas fa-trophy"></i>
+                                    AGAMYA TECH SUMMIT 2025
+                                </label>
+                                <div class="image-upload-container">
+                                    <input type="file" id="hackathon2Upload" accept="image/*" class="file-input">
+                                    <button type="button" class="btn btn-primary upload-cert-btn" data-target="hackathon2Upload">
+                                        <i class="fas fa-upload"></i>
+                                        Upload
+                                    </button>
+                                    <span class="file-name" id="hackathon2FileName">No file chosen</span>
+                                </div>
+                                <div class="certificate-preview" id="hackathon2Preview"></div>
+                            </div>
+
+                            <!-- Certification 1 -->
+                            <div class="certificate-upload-group">
+                                <label>
+                                    <i class="fas fa-certificate"></i>
+                                    Deloitte Data Analytics
+                                </label>
+                                <div class="image-upload-container">
+                                    <input type="file" id="cert1Upload" accept="image/*" class="file-input">
+                                    <button type="button" class="btn btn-primary upload-cert-btn" data-target="cert1Upload">
+                                        <i class="fas fa-upload"></i>
+                                        Upload
+                                    </button>
+                                    <span class="file-name" id="cert1FileName">No file chosen</span>
+                                </div>
+                                <div class="certificate-preview" id="cert1Preview"></div>
+                            </div>
+
+                            <!-- Certification 2 -->
+                            <div class="certificate-upload-group">
+                                <label>
+                                    <i class="fas fa-certificate"></i>
+                                    AI Tools Workshop
+                                </label>
+                                <div class="image-upload-container">
+                                    <input type="file" id="cert2Upload" accept="image/*" class="file-input">
+                                    <button type="button" class="btn btn-primary upload-cert-btn" data-target="cert2Upload">
+                                        <i class="fas fa-upload"></i>
+                                        Upload
+                                    </button>
+                                    <span class="file-name" id="cert2FileName">No file chosen</span>
+                                </div>
+                                <div class="certificate-preview" id="cert2Preview"></div>
+                            </div>
+
+                            <!-- Certification 3 -->
+                            <div class="certificate-upload-group">
+                                <label>
+                                    <i class="fas fa-certificate"></i>
+                                    Tata GenAI Analytics
+                                </label>
+                                <div class="image-upload-container">
+                                    <input type="file" id="cert3Upload" accept="image/*" class="file-input">
+                                    <button type="button" class="btn btn-primary upload-cert-btn" data-target="cert3Upload">
+                                        <i class="fas fa-upload"></i>
+                                        Upload
+                                    </button>
+                                    <span class="file-name" id="cert3FileName">No file chosen</span>
+                                </div>
+                                <div class="certificate-preview" id="cert3Preview"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary btn-large" id="saveChangesBtn">
+                            <i class="fas fa-save"></i>
+                            Save Changes
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-large" id="resetBtn">
+                            <i class="fas fa-undo"></i>
+                            Reset to Default
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Information Box -->
+            <section class="info-box">
+                <div class="info-box-content">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <h3>How Profile Editing Works</h3>
+                        <ul>
+                            <li>All changes are saved to your browser's local storage</li>
+                            <li>Your edits will persist across all pages (Bio-Data and Resume)</li>
+                            <li>Uploaded images are stored as base64 data in localStorage</li>
+                            <li>Click on any image to view it in full-screen mode</li>
+                            <li>Use "Reset to Default" to restore original information</li>
+                            <li>Data is stored locally on your device only</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <p>&copy; 2024 Supreet Suresh Ambiger. All rights reserved.</p>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Image Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+            <i class="fas fa-times"></i>
+        </button>
+        <img src="" alt="Enlarged view" id="lightboxImage">
+    </div>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="script.js?v=10"></script>
+</body>
+</html>
