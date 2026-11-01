@@ -5,6 +5,180 @@
  */
 
 // ============================================
+// EMAILJS CONFIGURATION & FUNCTIONALITY
+// ============================================
+
+/**
+ * EmailJS Configuration
+ * Replace these values with your own from EmailJS dashboard
+ */
+const EMAILJS_CONFIG = {
+    publicKey: 'YOUR_PUBLIC_KEY_HERE',  // Get from EmailJS Dashboard
+    serviceId: 'YOUR_SERVICE_ID_HERE',  // e.g., 'service_abc123'
+    templateId: 'YOUR_TEMPLATE_ID_HERE' // e.g., 'template_xyz456'
+};
+
+/**
+ * Initialize EmailJS
+ */
+function initializeEmailJS() {
+    try {
+        if (typeof emailjs === 'undefined') {
+            console.warn('⚠️ EmailJS library not loaded');
+            return false;
+        }
+        
+        // Initialize with your public key
+        emailjs.init(EMAILJS_CONFIG.publicKey);
+        console.log('✅ EmailJS initialized');
+        return true;
+    } catch (e) {
+        console.error('❌ EmailJS initialization failed:', e);
+        return false;
+    }
+}
+
+/**
+ * Send email with portfolio images via EmailJS
+ */
+async function sendPortfolioEmail() {
+    try {
+        console.log('📧 Preparing to send portfolio email...');
+        
+        // Get profile data from localStorage
+        const profile = getProfileData();
+        
+        // Check if EmailJS is configured
+        if (EMAILJS_CONFIG.publicKey === 'YOUR_PUBLIC_KEY_HERE') {
+            alert('⚠️ EmailJS Not Configured!\n\n' +
+                  'Please set up EmailJS first:\n' +
+                  '1. Go to https://www.emailjs.com/\n' +
+                  '2. Create a free account\n' +
+                  '3. Get your Public Key, Service ID, and Template ID\n' +
+                  '4. Update EMAILJS_CONFIG in script.js\n\n' +
+                  'For now, opening regular mailto link...');
+            
+            // Fallback to regular mailto
+            window.location.href = `mailto:supreetambiger@gmail.com?subject=Portfolio Inquiry&body=Hello Supreet,%0D%0A%0D%0AI would like to discuss opportunities with you.`;
+            return;
+        }
+        
+        // Show loading state
+        const emailBtn = document.getElementById('emailMeBtn');
+        const originalHTML = emailBtn ? emailBtn.innerHTML : '';
+        if (emailBtn) {
+            emailBtn.disabled = true;
+            emailBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        }
+        
+        // Prepare email template parameters
+        const templateParams = {
+            from_name: profile.name || 'Portfolio Visitor',
+            from_email: profile.email || 'Not provided',
+            from_phone: profile.phone || 'Not provided',
+            skills: profile.skills ? profile.skills.join(', ') : 'Not specified',
+            message: 'I would like to discuss opportunities with you.',
+            
+            // Profile picture (Base64)
+            profile_picture: profile.profileImage || '',
+            has_profile_picture: profile.profileImage ? 'Yes' : 'No',
+            
+            // Certificates (Base64)
+            cert_hackathon1: profile.certificates?.hackathon1 || '',
+            cert_hackathon2: profile.certificates?.hackathon2 || '',
+            cert_cert1: profile.certificates?.cert1 || '',
+            cert_cert2: profile.certificates?.cert2 || '',
+            cert_cert3: profile.certificates?.cert3 || '',
+            
+            // Certificate availability flags
+            has_hackathon1: profile.certificates?.hackathon1 ? 'Yes' : 'No',
+            has_hackathon2: profile.certificates?.hackathon2 ? 'Yes' : 'No',
+            has_cert1: profile.certificates?.cert1 ? 'Yes' : 'No',
+            has_cert2: profile.certificates?.cert2 ? 'Yes' : 'No',
+            has_cert3: profile.certificates?.cert3 ? 'Yes' : 'No',
+            
+            // Metadata
+            timestamp: new Date().toLocaleString(),
+            page_url: window.location.href
+        };
+        
+        console.log('📧 Sending email with portfolio data...');
+        
+        // Send email via EmailJS
+        const response = await emailjs.send(
+            EMAILJS_CONFIG.serviceId,
+            EMAILJS_CONFIG.templateId,
+            templateParams
+        );
+        
+        console.log('✅ Email sent successfully:', response);
+        
+        // Show success message
+        alert('✅ Email Sent Successfully!\n\n' +
+              'Your portfolio has been sent to supreetambiger@gmail.com\n\n' +
+              'Including:\n' +
+              '• Profile Picture: ' + (profile.profileImage ? '✓' : '✗') + '\n' +
+              '• Certificates: ' + (Object.values(profile.certificates || {}).filter(c => c).length) + '/5\n\n' +
+              'You should receive a response soon!');
+        
+        // Reset button
+        if (emailBtn) {
+            emailBtn.disabled = false;
+            emailBtn.innerHTML = originalHTML;
+        }
+        
+    } catch (error) {
+        console.error('❌ Email sending failed:', error);
+        
+        // Reset button
+        const emailBtn = document.getElementById('emailMeBtn');
+        if (emailBtn) {
+            emailBtn.disabled = false;
+            emailBtn.innerHTML = '<i class="fas fa-envelope"></i> Email Me with Portfolio';
+        }
+        
+        // Show error with fallback option
+        const errorMsg = error.text || error.message || 'Unknown error';
+        alert('❌ Email Sending Failed\n\n' +
+              'Error: ' + errorMsg + '\n\n' +
+              'Please try:\n' +
+              '1. Check your internet connection\n' +
+              '2. Verify EmailJS configuration\n' +
+              '3. Or email directly: supreetambiger@gmail.com');
+    }
+}
+
+/**
+ * Initialize "Email Me" button click handler
+ */
+function initializeEmailButton() {
+    try {
+        const emailBtn = document.getElementById('emailMeBtn');
+        
+        if (!emailBtn) {
+            console.log('Email Me button not found (may not be on this page)');
+            return;
+        }
+        
+        console.log('📧 Initializing Email Me button...');
+        
+        // Initialize EmailJS
+        const emailJSReady = initializeEmailJS();
+        
+        // Attach click handler
+        emailBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('📧 Email Me button clicked!');
+            sendPortfolioEmail();
+        });
+        
+        console.log('✅ Email Me button initialized');
+    } catch (e) {
+        console.error('❌ Error initializing Email button:', e);
+    }
+}
+
+// ============================================
 // DEFAULT PROFILE DATA
 // ============================================
 const defaultProfile = {
@@ -1020,20 +1194,40 @@ function saveProfileChanges() {
         
         console.log('📋 Form values:', { name, phone, email });
         
-        // Validation
+        // ============================================
+        // STRICT VALIDATION (Silly Mode)
+        // ============================================
+        
+        // 1. Check if all fields are filled
         if (!name || !phone || !email) {
             alert('Please fill in all required fields.');
             console.warn('⚠️ Validation failed: missing fields');
             return;
         }
         
-        // Basic email validation
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            alert('Please enter a valid email address.');
-            console.warn('⚠️ Validation failed: invalid email');
+        // 2. PHONE VALIDATION - Must contain ONLY digits (numbers)
+        const phonePattern = /^\d+$/;  // Only digits, no spaces/dashes/letters
+        if (!phonePattern.test(phone)) {
+            alert('Please enter numbers only for the phone number');
+            console.warn('⚠️ Validation failed: phone contains non-numeric characters');
+            // Highlight the phone field
+            phoneInput.focus();
+            phoneInput.select();
             return;
         }
+        
+        // 3. EMAIL VALIDATION - Must match standard email format
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert('Please enter a valid email format (e.g., name@example.com)');
+            console.warn('⚠️ Validation failed: invalid email format');
+            // Highlight the email field
+            emailInput.focus();
+            emailInput.select();
+            return;
+        }
+        
+        console.log('✅ All validation checks passed');
         
         const profile = getProfileData();
         
@@ -1178,6 +1372,9 @@ $(document).ready(function() {
         
         // Update profile display on all pages (loads saved images)
         updateProfileDisplay();
+        
+        // Initialize EmailJS and Email Me button
+        initializeEmailButton();
         
         // Initialize theme toggle
         initializeThemeToggle();
